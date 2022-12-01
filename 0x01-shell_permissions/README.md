@@ -1,1 +1,1 @@
-a script that adds execute permission to all subdirectories
+a script that changes the group owner to school for the file hello
