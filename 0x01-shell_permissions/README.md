@@ -1,1 +1,1 @@
-script that creates a directory called my_dir with permissions 751 in the working directory. 
+a script that switches the current user to the user betty
