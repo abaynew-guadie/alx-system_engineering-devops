@@ -1,0 +1,32 @@
+total 120
+drwxr-xr-x 2 root root  4096 Dec  4 23:08 .
+drwxr-xr-x 6 root root   104 Nov 29 21:52 ..
+-rwxr-xr-x 1 root root    32 Nov 29 21:52 0-hello_world
+-rwxr-xr-x 1 root root    36 Nov 29 21:52 100-empt_casks
+-rwxr-xr-x 1 root root    48 Nov 29 21:52 10-no_more_js
+-rwxr-xr-x 1 root root    37 Nov 29 21:52 11-directories
+-rwxr-xr-x 1 root root    43 Nov 29 21:52 12-newest_files
+-rwxr-xr-x 1 root root    27 Nov 29 21:52 13-unique
+-rwxr-xr-x 1 root root    36 Nov 29 21:52 14-findthatword
+-rwxr-xr-x 1 root root    38 Nov 29 21:52 15-countthatword
+-rwxr-xr-x 1 root root    41 Nov 29 21:52 16-whatsnext
+-rwxr-xr-x 1 root root    38 Nov 29 21:52 17-hidethisword
+-rwxr-xr-x 1 root root    52 Nov 29 21:52 18-letteronly
+-rw-r--r-- 1 root root 12288 Nov 29 21:52 .18-letteronly.swp
+-rwxr-xr-x 1 root root    36 Nov 29 21:52 19-AZ
+-rwxr-xr-x 1 root root    28 Nov 29 21:52 1-confused_smiley
+-rwxr-xr-x 1 root root    23 Nov 29 21:52 20-hiago
+-rwxr-xr-x 1 root root    16 Nov 29 21:52 21-reverse
+-rwxr-xr-x 1 root root    50 Nov 29 21:52 22-users_and_homes
+-rwxr-xr-x 1 root root    28 Nov 29 21:52 2-hellofile
+-rwxr-xr-x 1 root root    39 Nov 29 21:52 3-twofiles
+-rwxr-xr-x 1 root root    29 Dec  4 22:35 4-lastlines
+-rwxr-xr-x 1 root root    29 Dec  4 22:45 5-firstlines
+-rwxr-xr-x 1 root root    38 Dec  4 22:49 6-third_line
+-rwxr-xr-x 1 root root    99 Nov 29 21:52 7-file
+-rwxr-xr-x 1 root root    36 Nov 29 21:52 8-cwd_state
+-rwxr-xr-x 1 root root    37 Nov 29 21:52 9-duplicate_last_line
+-rw-r--r-- 1 root root    12 Dec  4 23:05 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-r--r-- 1 root root     0 Nov 29 21:52 iacta
+-rw-r--r-- 1 root root     0 Dec  4 23:08 ls_cwd_content
+-rw-r--r-- 1 root root    76 Dec  4 23:07 README.md
