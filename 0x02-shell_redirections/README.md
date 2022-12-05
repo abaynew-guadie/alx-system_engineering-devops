@@ -1,1 +1,1 @@
-shell script that creates a file named exactly 
+cript that writes into the file ls_cwd_content
