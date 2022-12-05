@@ -1,1 +1,1 @@
-a command that finds all empty files and directories in the current directory and all sub-directories
+The word comes from the French acrostiche from post-classical Latin acrostichis)
