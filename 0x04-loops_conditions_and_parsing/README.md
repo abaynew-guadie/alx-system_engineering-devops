@@ -1,7 +1,6 @@
 0x04-loops_conditions_and_parsing
 > Each file in this repository for system engineering and devOps pertaining to loops, conditions, and parsing.
-
-### Description of what each file shows:
+ Description of what each file shows:
 * main_files ----- folder holds main programs to showcase examples of how to use functions
 * tests ---------- folder holds tests and edge cases checking
 * Files that start with:
@@ -16,4 +15,4 @@
 8. ```for``` contents in current directory, print names cutting initial field
 9. display info about a file: exists? empty? regular file?
 10. FizzBuzz
-
+author:Abaynew G
