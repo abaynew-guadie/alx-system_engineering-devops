@@ -1,20 +1,11 @@
 #!/usr/bin/env bash
-# Infinite loop creates file with pid, catches signal, and removes file/exits:
-# Ctrl-C (SIGINT), kill (SIGTERM), and ctrl-| (SIGQUIT)
-
-rmfile_n_exit()
-{
-    rm -f /var/run/holbertonscript.pid;
-    exit
-}
-trap "echo 'Y U no love me?!'" SIGINT
-trap "echo 'I hate the kill command'; rmfile_n_exit" SIGTERM
-trap "echo 'I hate the kill command'; rmfile_n_exit" SIGQUIT
-
-
-echo $$ >> /var/run/holbertonscript.pid
-while (true)
+# create pub file with its own pid and receive SIG
+sudo bash -c "echo $$ > /var/run/codingschoolscript.pid"
+trap "sudo rm -f /var/run/codingschoolscript.pid; exit" SIGQUIT
+trap "sudo rm -f /var/run/codingschoolscript.pid; echo I hate the kill command; exit" SIGTERM
+trap "echo Y U no love me?!" SIGINT
+while :
 do
-    echo 'To infinity and beyond'
+    echo "To infinity and beyond"
     sleep 2
 done
