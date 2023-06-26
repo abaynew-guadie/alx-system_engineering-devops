@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Redirecting to a 404 page
+apt-get -y update
+apt-get -y install nginx
+RDR="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QcNBLSSn8Vg;\n\t}\n"
+echo "301 Moved Permanently" | tee /var/www/html/index.html
+sudo sed -i "42i $RDR" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+service nginx restart
+

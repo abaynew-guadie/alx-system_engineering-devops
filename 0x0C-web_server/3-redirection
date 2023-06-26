@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Configure Nginx server so /redirect_me is redirecting to another page
+rdr="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QcNBLSSn8Vg;\n\t}\n"
+
+sudo apt-get update
+sudo apt-get install nginx -y
+echo "301 Moved Permanently" | sudo tee /usr/share/nginx/html/index.html
+sudo sed -i "30i $rdr" /etc/nginx/sites-available/default
+sudo service nginx start
+
