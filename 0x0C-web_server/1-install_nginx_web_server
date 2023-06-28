@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Installs Nginx
+# Script that configures a new Ubuntu machine to respect above requirements
 
 apt-get update
 apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.html
-service nginx start
+
+echo "Hello  World!" | sudo tee /var/www/html/index.html
+
+service nginx restarti
