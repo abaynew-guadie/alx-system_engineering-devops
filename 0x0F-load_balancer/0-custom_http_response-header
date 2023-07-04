@@ -1,26 +1,15 @@
 #!/usr/bin/env bash
-# Configure server with: Nginx, custom 404, custom 301 redirect to google
-# Add to HTTP header
-
-ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://google.com;\n\t}\n"
-ADD404_NOTFOUND="error_page 404 /custom_404.html;\n\\tlocation = /custom_404.html {\n\t\t root /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
-PATTERN="#error_page 404 /404.html;"
-ADD_HEADER="\\\tadd_header X-Served-By $HOSTNAME;"
-
+# shellcheck disable=SC2154
+#configures a new Ubuntu machine nginx
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+new_string="listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}"
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+new_string="listen 80 default_server;\\nerror_page 404 \/404.html;\\n\\tlocation = \/404.html {\\n\\t\\troot \/usr\/share\/nginx\/html;\\n\\t\\tinternal;\\n\\t}"
+sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+new_string2="http {\\n\\tadd_header X-Served-By \"$HOSTNAME\";"
+sudo sed -i "s/http {/$new_string2/" /etc/nginx/nginx.conf
 sudo service nginx start
-
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-
-# melissax.online/redirect_me redirects to google.com (add to line 30)
-sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
-
-# Any page that errors shows this new custom_404.html page (uncomment and replace code)
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
-sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default
-
-# Header is updated (add_header to file)
-sudo sed -i "27i $ADD_HEADER" /etc/nginx/sites-available/default
-
-sudo service nginx restart
