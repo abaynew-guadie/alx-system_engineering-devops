@@ -64,7 +64,7 @@ backend le-certbot-backend
 	server letsencrypt 127.0.0.1:8888
 
 backend www-backend
-        balance roundrobin       
+        balance roundrobin
         server 159717-web-01 100.27.4.22:80 check
         server 159717-web-02 100.25.194.133:80 check
         server 159717-lb-01 52.91.116.129:80 check
