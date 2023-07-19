@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# he script should run the whoami command under the user passed as an argument
-if [ "$#" -ne 0 ]
-then
-        chsh -s /bin/bash "$1" &>/dev/null
-fi
-su - "$1" -c 'whoami'
+# Run as non-root user; Take username from first arg passed
+
+sudo -u "$1" whoami
