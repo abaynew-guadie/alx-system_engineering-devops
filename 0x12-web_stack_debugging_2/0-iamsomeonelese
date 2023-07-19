@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Run as non-root user; Take username from first arg passed
-
+# Run software as another user
 sudo -u "$1" whoami
