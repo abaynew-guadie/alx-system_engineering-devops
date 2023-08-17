@@ -1,31 +1,25 @@
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+    listen 80;
+    server_name 127.0.0.1 35.190.188.208;
 
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
+    location /airbnb-onepage/ {
+        include proxy_params;
+	proxy_pass http://localhost:5000/airbnb-onepage/;
+    }
 
-	server_name _;
+    location /airbnb-dynamic/number_odd_or_even/ {
+        rewrite /airbnb-dynamic/(.*) $1 break;
+        include proxy_params;
+	proxy_pass http://localhost:5001/number_odd_or_even;
+    }
 
-	location / {
-		try_files $uri $uri/ =404;
-	}
+    location /api/ {
+        include proxy_params;
+	proxy_pass http://localhost:5002/api/;
+    }
 
-	location /airbnb-onepage/ {
-		proxy_pass http://localhost:5000;
-	}
-
-	location /airbnb-dynamic/ {
-		proxy_pass http://localhost:5001/;
-	}
-
-	if ($request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
-
-	error_page 404 /404.html;
-	location = /404.html {
-		root /var/www/error/;
-		internal;
-	}
+    location / {
+        include proxy_params;
+	proxy_pass http://localhost:5003/;
+    }
 }
